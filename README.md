@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # blackoffice
 
 > A Vue.js project
@@ -28,3 +29,6 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+# blackOfficeEmptyRoom
+>>>>>>> 1a76bd3b928b4f9a8ccf131beca91aab8f77cd72

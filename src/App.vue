@@ -43,12 +43,27 @@
       cancleRoom (roomID) {
         let time = new Date()
         let room = []
+        let currentDate = time.getDate() + '/' + parseInt(time.getMonth() + 1) + '/' + parseInt(time.getYear() + 1900)
+        let checkDate
+        let end
         this.rooms.forEach(function (element) {
           if (roomID === element['.key']) {
             room = (element['.value'])
-            console.log(roomID + ' ' + room + ' ' + time.getHours() + ':' + time.getMinutes())
+            console.log(roomID + ' ' + room + ' ' + time.getHours() + ' ' + currentDate)
           }
         })
+        this.booking.forEach(function (element) {
+          if (element.date === currentDate && element.status === 'active' && element.startTime <= 18) {
+            checkDate = element.date
+            end = element.endTime
+            console.log(checkDate + ' ' + element.endTime + element['.key'])
+          }
+        })
+        for (let i = 0; i < room.length; i++) {
+          if (i < end && i > time.getHours()) {
+            room[i] = 'empty'
+          }
+        }
         // this.$firebaseRefs.rooms.child(roomID).set(room)
       }
     },

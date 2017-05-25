@@ -45,7 +45,7 @@
         let room = []
         let currentDate = time.getDate() + '/' + parseInt(time.getMonth() + 1) + '/' + parseInt(time.getYear() + 1900)
         let checkDate
-        let end
+        let end, uid, start, facebookID, stdId
         this.rooms.forEach(function (element) {
           if (roomID === element['.key']) {
             room = (element['.value'])
@@ -53,10 +53,14 @@
           }
         })
         this.booking.forEach(function (element) {
-          if (element.date === currentDate && element.status === 'active' && element.startTime <= 18) {
+          if (element.room === roomID && element.date === currentDate && element.status === 'active' && element.startTime <= 18) {
             checkDate = element.date
             end = element.endTime
-            console.log(checkDate + ' ' + element.endTime + element['.key'])
+            start = element.startTime
+            stdId = element.stdId
+            facebookID = element.facebookId
+            uid = element['.key']
+            console.log(uid + ' ' + checkDate + ' ' + roomID + ' ' + start + ' ' + stdId + ' ' + facebookID)
           }
         })
         for (let i = 0; i < room.length; i++) {
@@ -64,7 +68,17 @@
             room[i] = 'empty'
           }
         }
-        // this.$firebaseRefs.rooms.child(roomID).set(room)
+        console.log(uid)
+        this.$firebaseRefs.rooms.child(roomID).set(room)
+        this.$firebaseRefs.booking.child(uid).set({
+          date: checkDate,
+          endTime: end,
+          facebookId: facebookID,
+          room: roomID,
+          startTime: start,
+          status: 'finish',
+          stdId: stdId
+        })
       }
     },
     mounted () {

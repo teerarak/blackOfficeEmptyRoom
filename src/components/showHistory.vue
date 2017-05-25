@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="showHistory">
-    <b-table :data="booking" :mobile-cards="true" :narrowed="false" :pagination-simple="true" :striped="true" :paginated="true" :per-page="10">
+    <b-table :data="booking" :mobile-cards="true" :narrowed="false" :pagination-simple="false" :striped="true" :paginated="true" :per-page="10">
       <template scope="props">
           <b-table-column label="รหัสนักศึกษา" sortable>{{props.row.stdId}}</b-table-column>
           <b-table-column label="ห้อง" sortable>{{props.row.room}}</b-table-column>

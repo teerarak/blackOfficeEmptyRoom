@@ -15,7 +15,7 @@
       </a>
     </div>
     </nav>
-    <router-view :rooms="rooms" :booking="booking"></router-view>
+    <router-view :rooms="rooms" :booking="booking" :cancle="cancleRoom"></router-view>
   </div>
 </template>
 

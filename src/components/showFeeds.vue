@@ -15,14 +15,12 @@
 
 <script>
   export default {
-    props: ['rooms'],
+    props: ['rooms', 'cancle'],
     name: 'showFeeds',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
+    methods: {
+      cancleRoom (room) {
+        this.cancle(room)
       }
     }
   }
 </script>
-
-</style>

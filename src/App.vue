@@ -1,7 +1,20 @@
 ﻿<template>
   <div id="app">
-    <router-link to="/"><button type="button" name="button">showFeeds</button></router-link>
-    <router-link to="/showHistory"><button type="button" name="button">showHistory</button></router-link>
+    <nav class="nav" style="backgroundColor:#008b8b">
+    <div class="nav-left">
+      <a class="nav-item">
+        <img src="../header.png">
+      </a>
+    </div>
+    <div class="nav-right ">
+      <a class="nav-item">
+        <router-link to="/"><button type="button" class="button" name="button">แสดงสถานะ</button></router-link>
+      </a>
+      <a class="nav-item">
+      <router-link to="/showHistory"><button type="button" class="button" name="button">แสดงประวัติ</button></router-link>
+      </a>
+    </div>
+    </nav>
     <router-view :rooms="rooms" :booking="booking"></router-view>
   </div>
 </template>
@@ -55,7 +68,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 .card {
     /* Add shadows to create the "card" effect */

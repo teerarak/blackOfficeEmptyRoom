@@ -10,16 +10,20 @@
         <td><button type="button" @click="cancleRoom(room['.key'])" class="button is-danger">ยกเลิก</button></td>
       </tr>
     </table>
+      <button type="button" class="button is-danger is-outlined" name="btn_clear" @click="clear()">คืนค่าการจอง</button>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['rooms', 'cancle'],
+    props: ['rooms', 'cancle', 'clear'],
     name: 'showFeeds',
     methods: {
       cancleRoom (room) {
         this.cancle(room)
+      },
+      clear () {
+        this.clear()
       }
     }
   }

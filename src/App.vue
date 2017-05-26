@@ -15,7 +15,7 @@
       </a>
     </div>
     </nav>
-    <router-view :rooms="rooms" :booking="booking" :cancle="cancleRoom"></router-view>
+    <router-view :rooms="rooms" :booking="booking" :cancle="cancleRoom" :clear="clear"></router-view>
   </div>
 </template>
 
@@ -40,6 +40,29 @@
       }
     },
     methods: {
+      clear () {
+        let vm = this
+        var room = {
+          9: 'empty',
+          10: 'empty',
+          11: 'empty',
+          12: 'empty',
+          13: 'empty',
+          14: 'empty',
+          15: 'empty',
+          16: 'empty',
+          17: 'empty',
+          18: 'empty'
+        }
+        console.log('test')
+        for (var n = 0; n < vm.rooms.length; n++) {
+          if (n < 9) {
+            this.$firebaseRefs.rooms.child('Tutor' + ('0' + (n + 1))).set(room)
+          } else {
+            this.$firebaseRefs.rooms.child('Tutor' + (n + 1)).set(room)
+          }
+        }
+      },
       cancleRoom (roomID) {
         let time = new Date()
         let room = []
